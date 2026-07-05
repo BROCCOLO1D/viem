@@ -396,7 +396,7 @@ describe('request', () => {
     expect(count).toBe(1)
   })
 
-  test('error (rpc - fallthrough)', async () => {
+  test('error (rpc - falls through unstructured errors)', async () => {
     let count = 0
     const server1 = await createHttpServer((_req, res) => {
       count++
@@ -441,7 +441,7 @@ describe('request', () => {
     expect(count).toBe(3)
   })
 
-  test('error (rpc - fallthrough)', async () => {
+  test('error (rpc - falls through internal RPC errors)', async () => {
     let count = 0
     const server1 = await createHttpServer((_req, res) => {
       count++
@@ -468,7 +468,7 @@ describe('request', () => {
     expect(count).toBe(2)
   })
 
-  test('error (rpc - fallthrough)', async () => {
+  test('error (rpc - falls through HTTP 404 errors)', async () => {
     let count = 0
     const server1 = await createHttpServer((_req, res) => {
       count++
